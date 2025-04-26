@@ -16,15 +16,16 @@ const PumpControlPage = () => {
   const addManualHistory = (startTime, endTime, duration) => {
     const now = new Date();
     const dateStr = now.toLocaleDateString('th-TH');
-
+  
     setSchedules(prev => [
       ...prev,
       {
+        id: Date.now(), //เพิ่ม id ให้ด้วย (timestamp)
         time: startTime,
         endTime: endTime,
         duration,
         date: dateStr,
-        source: 'manual', // เพื่อแยกจาก schedule
+        source: 'manual',
       },
     ]);
   };
@@ -43,7 +44,7 @@ const PumpControlPage = () => {
 
       <h1>ควบคุมปั๊ม🕹️</h1>
 
-      {/* ✅ ส่ง addManualHistory ไปยัง ManualControl */}
+      {/*ส่ง addManualHistory ไปยัง ManualControl */}
       <ManualControl addManualHistory={addManualHistory} />
 
       <ScheduleControl

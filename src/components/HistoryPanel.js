@@ -32,9 +32,9 @@ const HistoryPanel = ({ show, onClose, schedules }) => {
       )}
 
       {/* ประวัติ Schedule */}
-      <h4>📅 ประวัติ Schedule</h4>
+      <h4>📅 ประวัติ Auto</h4>
       {schedules.filter(item => item.source !== 'manual').length === 0 ? (
-        <p>ไม่มีรายการ Schedule</p>
+        <p>ไม่มีรายการ Auto</p>
       ) : (
         schedules
           .filter(item => item.source !== 'manual')
