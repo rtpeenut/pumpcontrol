@@ -13,22 +13,24 @@ const PumpControlPage = () => {
   const [enableSchedule, setEnableSchedule] = useState(false);
 
   
-  const addManualHistory = (startTime, endTime, duration) => {
+  const addManualHistory = (startTime, endTime, duration, timestamp) => {
     const now = new Date();
     const dateStr = now.toLocaleDateString('th-TH');
   
     setSchedules(prev => [
       ...prev,
       {
-        id: Date.now(), //เพิ่ม id ให้ด้วย (timestamp)
+        id: Date.now(),
         time: startTime,
         endTime: endTime,
         duration,
         date: dateStr,
         source: 'manual',
+        timestamp, // เพิ่ม timestamp
       },
     ]);
   };
+  
 
   return (
     <div className="page-container">
@@ -45,7 +47,7 @@ const PumpControlPage = () => {
       <h1>ควบคุมปั๊ม🕹️</h1>
 
       {/*ส่ง addManualHistory ไปยัง ManualControl */}
-      <ManualControl addManualHistory={addManualHistory} />
+      <ManualControl addManualHistory={addManualHistory} schedules={schedules} />
 
       <ScheduleControl
         schedules={schedules}
