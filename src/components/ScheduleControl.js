@@ -25,7 +25,7 @@ const ScheduleControl = ({ schedules, setSchedules, enableSchedule, setEnableSch
   
     const now = Date.now();
     const diffSec = Math.floor((now - lastTime) / 1000);
-    return Math.max(0, 180 - diffSec);
+    return Math.max(0, 120 - diffSec);
   };
   
 
@@ -54,7 +54,7 @@ const ScheduleControl = ({ schedules, setSchedules, enableSchedule, setEnableSch
   
       setTime('');
       setDuration('');
-      setCooldown(180); 
+      setCooldown(120); 
     }
   };
   

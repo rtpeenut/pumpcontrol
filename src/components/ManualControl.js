@@ -19,7 +19,7 @@ const ManualControl = ({ addManualHistory, schedules }) => {
       //เปิด
       startTimeRef.current = new Date();
       setIsOn(true);
-      setCooldown(180);
+      setCooldown(120);
     } else {
       //ปิด
       if (cooldown > 0) {
